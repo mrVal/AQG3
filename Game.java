@@ -18,24 +18,24 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author BallsofSteel
+ * @author angrygoose
  */
 public class Game extends CoreFramework{
-    
+
     Handler handler;
-    
+
     //States
     protected StateManager stateManager;
     private State adventureState;
     private State combatState;
-    
+
     //Rooms
     RoomManager roomManager;
     Room room0;
 
-    
+
     Debugger debugger;
-    
+
     @Override
     protected void initializeGame(){
         super.initializeGame();
@@ -45,11 +45,11 @@ public class Game extends CoreFramework{
         handler.setMouse(mouse);
         handler.setDebugger(debugger);
         Assets.init();
-        
+
         //States
         /*
-        * When adding a state to the Map of states always use put() 
-        * with .getClass().getSimpleName() to make sure that 
+        * When adding a state to the Map of states always use put()
+        * with .getClass().getSimpleName() to make sure that
         * the map key coincides with the class name
         */
         Map states = new HashMap<String,State>();
@@ -59,14 +59,14 @@ public class Game extends CoreFramework{
         states.put(combatState.getClass().getSimpleName(), combatState);
         stateManager = new StateManager(states);
         stateManager.setState("AdventureState");
-        
+
         //rooms
-        
+
         room0 = new Room0(handler);
-        
+
         /*
-        * When adding a room to the Map of rooms always use put() 
-        * with .getClass().getSimpleName() to make sure that 
+        * When adding a room to the Map of rooms always use put()
+        * with .getClass().getSimpleName() to make sure that
         * the map key coincides with the class name
         */
         Map rooms = new HashMap<String, Room>();
@@ -74,7 +74,7 @@ public class Game extends CoreFramework{
 
         roomManager = new RoomManager(rooms);
     }
-    
+
     @Override
     protected void processInput(){
         super.processInput();
@@ -86,45 +86,45 @@ public class Game extends CoreFramework{
             StateManager.setState("CombatState");
             handler.getDebugger().setText("combatState");
         }
-        
+
         RoomManager.getCurrentRoom().processInput();
     }
-    
+
     @Override
     protected void updateObjects(){
         super.updateObjects();
-        
+
         if(StateManager.getState() != null){
             StateManager.getState().updateObjects();
         }
-        
+
         RoomManager.getCurrentRoom().updateObjects();
     }
-    
+
     @Override
     protected void renderStuff(Graphics g){
         //g.drawImage(Assets.hillsBgr, 0, 0, null);
         super.renderStuff(g);
         g.drawString("I'm alive", 200, 50);
-        
+
         if(StateManager.getState() != null){
             StateManager.getState().render(g);
         }
-        
+
         RoomManager.getCurrentRoom().render(g);
-        
+
         System.out.println("current room: " + RoomManager.getCurrentRoom().toString());
-        
+
     }
-    
+
     public static void main(String[] args) {
-        
+
         Game game = new Game();
-        
+
         SwingUtilities.invokeLater(new Runnable(){
             public void run(){
-               game.createAndShowGUI(); 
+               game.createAndShowGUI();
             }
-        }); 
-    }  
+        });
+    }
 }
