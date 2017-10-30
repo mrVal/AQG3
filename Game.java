@@ -33,7 +33,6 @@ public class Game extends CoreFramework{
     RoomManager roomManager;
     Room room0;
 
-
     Debugger debugger;
 
     @Override
