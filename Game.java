@@ -9,7 +9,6 @@ import com.angrygoose.aqg3.states.CombatState;
 import com.angrygoose.aqg3.states.State;
 import com.angrygoose.aqg3.states.StateManager;
 import com.angrygoose.aqg3.utilities.CoreFramework;
-import com.angrygoose.aqg3.utilities.Debugger;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
@@ -33,16 +32,12 @@ public class Game extends CoreFramework{
     RoomManager roomManager;
     Room room0;
 
-    Debugger debugger;
-
     @Override
     protected void initializeGame(){
         super.initializeGame();
-        debugger = new Debugger("Hello");
         handler = new Handler(this);
         handler.setKeyboard(keyboard);
         handler.setMouse(mouse);
-        handler.setDebugger(debugger);
         Assets.init();
 
         //States
@@ -79,11 +74,9 @@ public class Game extends CoreFramework{
         super.processInput();
         if(keyboard.keyDownOnce(KeyEvent.VK_1)){
             StateManager.setState("AdventureState");
-            handler.getDebugger().setText("adventureState");
         }
         if(keyboard.keyDownOnce(KeyEvent.VK_2)){
             StateManager.setState("CombatState");
-            handler.getDebugger().setText("combatState");
         }
 
         RoomManager.getCurrentRoom().processInput();
