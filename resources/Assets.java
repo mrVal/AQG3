@@ -15,7 +15,11 @@ import java.io.File;
  */
 public class Assets {
     //backgrounds
+<<<<<<< HEAD
     public static BufferedImage storyBgr, highlandsBgr, hillsBgr;
+=======
+    public static BufferedImage storyBgr, highlandsBgr, hillsBgr, caveBgr;
+>>>>>>> assets
 
     public static void init(){
 
@@ -25,5 +29,6 @@ public class Assets {
         //backgrounds
         highlandsBgr = Utility.loadImage(new File("res/img/highlandsBgr.png"));
         hillsBgr = Utility.loadImage(new File("res/img/hillsBgr.png"));
+        caveBgr = Utility.loadImage(new File("res/img/caveBgr.png"));
     }
 }
