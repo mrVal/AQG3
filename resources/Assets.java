@@ -11,17 +11,17 @@ import java.io.File;
 
 /**
  *
- * @author BallsofSteel
+ * @author angrygoose
  */
 public class Assets {
     //backgrounds
-    public static BufferedImage storyBgr, highlandsBgr, hillsBgr; 
-    
+    public static BufferedImage storyBgr, highlandsBgr, hillsBgr;
+
     public static void init(){
-        
+
         //storyInterface
         storyBgr = Utility.loadImage(new File("res/img/storyBgr.png"));
-        
+
         //backgrounds
         highlandsBgr = Utility.loadImage(new File("res/img/highlandsBgr.png"));
         hillsBgr = Utility.loadImage(new File("res/img/hillsBgr.png"));
