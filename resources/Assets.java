@@ -15,15 +15,16 @@ import java.io.File;
  */
 public class Assets {
     //backgrounds
-    public static BufferedImage storyBgr, highlandsBgr, hillsBgr; 
-    
+    public static BufferedImage storyBgr, highlandsBgr, hillsBgr, caveBgr;
+
     public static void init(){
-        
+
         //storyInterface
         storyBgr = Utility.loadImage(new File("res/img/storyBgr.png"));
-        
+
         //backgrounds
         highlandsBgr = Utility.loadImage(new File("res/img/highlandsBgr.png"));
         hillsBgr = Utility.loadImage(new File("res/img/hillsBgr.png"));
+        caveBgr = Utility.loadImage(new File("res/img/caveBgr.png"));
     }
 }
