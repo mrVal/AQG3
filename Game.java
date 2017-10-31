@@ -21,8 +21,6 @@ import javax.swing.SwingUtilities;
  */
 public class Game extends CoreFramework{
 
-    BAD BAD STUFF!!
-
     Handler handler;
 
     //States
