@@ -20,7 +20,7 @@ import javax.swing.SwingUtilities;
  * @author angrygoose
  */
 
-    THAT'S AN EVIL COLNE
+    THAT'S AN EVIL COLNE II
 
 public class Game extends CoreFramework{
 
