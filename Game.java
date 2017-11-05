@@ -19,6 +19,9 @@ import javax.swing.SwingUtilities;
  *
  * @author angrygoose
  */
+
+    THAT'S AN EVIL COLNE
+
 public class Game extends CoreFramework{
 
     Handler handler;
